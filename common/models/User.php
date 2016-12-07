@@ -186,4 +186,20 @@ class User extends ActiveRecord implements IdentityInterface
     {
         $this->password_reset_token = null;
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getPayments()
+    {
+        return $this->hasMany(Payment::className(), ['user_id' => 'id']);
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasSuccesPayments()
+    {
+        return $this->getPayments()->where(['status' => Payment::STATUS_SUCCESS])->count() > 0;
+    }
 }
