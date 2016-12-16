@@ -42,11 +42,7 @@ return [
             'showScriptName' => false,
             'rules' => [
                 '/' => 'site/index',
-                '/signup' => 'site/signup',
-                '/login' => 'site/login',
-                '/about' => 'site/about',
-                '/contact' => 'site/contact',
-                '/payment' => 'site/payment',
+                '<action>'=>'site/<action>',
             ],
         ],
     ],
